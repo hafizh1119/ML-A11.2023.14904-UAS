@@ -48,7 +48,7 @@ Menampilkan 10 fitur paling berpengaruh, di mana `building_size_m2` adalah fitur
 ## 11. Visualisasi Fitur Terpenting
 Menampilkan barplot 10 fitur paling berpengaruh terhadap harga rumah.
 
-## A. Eksperimen Model Lain
+## 12. Eksperimen Model Lain
 Model lain yang diuji:
 - Random Forest
 - Gradient Boosting
@@ -61,13 +61,13 @@ Model lain yang diuji:
 - **Linear Regression**: Performa sedang
 - **SVR**: Performa terendah (underfitting)
 
-## B. Prediksi vs Asli
+## 13. Prediksi vs Asli
 Visualisasi scatter plot menunjukkan bahwa Random Forest dan Gradient Boosting memberikan prediksi paling mendekati nilai aktual.
 
-## C. Analisis Error Model Terbaik
+## 14. Analisis Error Model Terbaik
 Residual dari Random Forest menunjukkan error tersebar merata di sekitar nol, menunjukkan model stabil dan tidak bias.
 
-## D. Distribusi Error Tiap Model
+## 15. Distribusi Error Tiap Model
 Distribusi error yang sempit dan simetris ditemukan pada Random Forest. SVR menunjukkan distribusi error terburuk.
 
 ## Kesimpulan
