@@ -1,115 +1,74 @@
-🏡 Analisis Komparatif Algoritma Machine Learning untuk Prediksi Harga Rumah Berdasarkan Dataset Jabodetabek
 
-📌 Permasalahan
+# Analisis Komparatif Algoritma Machine Learning untuk Prediksi Harga Rumah Berdasarkan Dataset Jabodetabek
 
-Bagaimana membangun model prediksi harga rumah yang akurat, efisien, dan dapat diandalkan, serta menentukan model mana yang paling baik melalui evaluasi komparatif berbagai algoritma.
+## Permasalahan
+Bagaimana membangun model prediksi harga rumah yang akurat, efisien, dan dapat diandalkan, serta menentukan model mana yang paling baik berdasarkan evaluasi komparatif antar algoritma.
 
-🎯 Tujuan
+## Tujuan
+- Mengevaluasi performa berbagai algoritma regresi dalam memprediksi harga rumah.
+- Mengidentifikasi model dengan akurasi terbaik berdasarkan metrik RMSE dan R².
+- Melihat seberapa baik model merepresentasikan data aktual secara visual dan numerik.
+- Melakukan evaluasi mendalam terhadap pola kesalahan (residual) dari model terbaik.
 
-Mengevaluasi performa algoritma regresi dalam memprediksi harga rumah menggunakan dataset Jabodetabek.
+## Dataset
+Dataset berisi informasi harga rumah di wilayah Jabodetabek yang diekstrak dari file ZIP dan dimuat ke dalam DataFrame.
 
-Mengidentifikasi model dengan akurasi terbaik berdasarkan metrik evaluasi seperti RMSE dan R².
+## 1. Import Library
+Menggunakan `pandas`, `sklearn`, `matplotlib`, dan `seaborn` untuk manipulasi data, pemodelan, dan visualisasi.
 
-Menilai kemampuan masing-masing model dalam merepresentasikan data aktual secara visual dan numerik.
+## 2. Load Dataset
+Membaca dataset dari file CSV, mengecek missing value, statistik deskriptif, dan distribusi kota.
 
-Melakukan analisis residual pada model terbaik untuk memahami pola kesalahan dan potensi penyempurnaan.
+## 3. Tentukan Target dan Fitur
+- Target (`y`): Kolom `price_in_rp` (dikonversi logaritmik).
+- Fitur (`X`): Semua kolom kecuali `price_in_rp`.
 
-🗂️ Struktur Proyek
+## 4. Pisahkan Fitur Numerik dan Kategorikal
+Identifikasi kolom numerik dan kategorikal untuk preprocessing.
 
-1. Persiapan Dataset
-    from google.colab import files
-    uploaded = files.upload()
+## 5. Buat Pipeline Preprocessing
+- Numerik: Imputasi dengan median.
+- Kategorikal: Imputasi dengan modus dan One-Hot Encoding.
 
-    import zipfile
-    with zipfile.ZipFile("Dataset projek.zip", 'r') as zip_ref:
-        zip_ref.extractall("dataset_rumah")
+## 6. Gabungkan dengan Random Forest
+Membuat pipeline gabungan preprocessing dan model Random Forest.
 
-2. Import Library
-    import pandas as pd
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    from sklearn.model_selection import train_test_split
-    from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-    from sklearn.linear_model import LinearRegression
-    from sklearn.svm import SVR
-    from sklearn.preprocessing import OneHotEncoder
-    from sklearn.impute import SimpleImputer
-    from sklearn.compose import ColumnTransformer
-    from sklearn.pipeline import Pipeline
-    from sklearn.metrics import mean_squared_error, r2_score
+## 7. Split Data
+Membagi data menjadi 80% training dan 20% testing.
 
-3. Load Dataset
-    df = pd.read_csv('dataset_rumah/jabodetabek_house_price.csv')
+## 8. Latih Model
+Model dilatih menggunakan data training.
 
-4. Pra-pemrosesan Data
-    Target (y): price_in_rp → dikonversi ke logaritma.
-    Fitur (X): seluruh kolom selain target.
-    Pisahkan fitur numerik dan kategorikal.
-    Pipeline preprocessing:
-        - Numerik → imputasi median.
-        - Kategorikal → imputasi modus + OneHotEncoding.
+## 9. Evaluasi Model
+Evaluasi menggunakan MSE dan R². Hasil menunjukkan bahwa Random Forest memberikan hasil terbaik.
 
-⚙️ Training & Evaluasi Model
-    Model yang Digunakan:
-    - Random Forest
-    - Gradient Boosting
-    - Linear Regression
-    - Support Vector Regressor (SVR)
-    Metode Evaluasi:
-    - Mean Squared Error (MSE)
-    - R-squared (R²)
+## 10. Feature Importance
+Menampilkan 10 fitur paling berpengaruh, di mana `building_size_m2` adalah fitur dominan.
 
-📈 Hasil Evaluasi:
-    | Model               | MSE    | R²     |
-    | ------------------- | ------ | ------ |
-    | Random Forest       | 0.1087 | 0.9127 |
-    | Gradient Boosting   | 0.1153 | 0.9074 |
-    | Linear Regression   | 0.1446 | 0.8762 |
-    | Support Vector Reg. | 0.2578 | 0.7540 |
-    ✅ Random Forest memberikan hasil paling optimal, mampu menjelaskan 91% variasi data.
+## 11. Visualisasi Fitur Terpenting
+Menampilkan barplot 10 fitur paling berpengaruh terhadap harga rumah.
 
-🔍 Visualisasi & Analisis
-    🔹 Feature Importance (Random Forest)
-    Fitur paling berpengaruh:
-    1. building_size_m2
-    2. land_size_m2
-    3. long
-    4. lat
-    5. bathroom
-    6. Luas bangunan (building_size_m2) merupakan faktor paling dominan dalam menentukan harga.
+## A. Eksperimen Model Lain
+Model lain yang diuji:
+- Random Forest
+- Gradient Boosting
+- Linear Regression
+- Support Vector Regressor (SVR)
 
-🔹 Prediksi vs Nilai Asli
-    - Scatter plot untuk semua model.
-    - Garis merah sebagai referensi nilai ideal.
-    Random Forest dan Gradient Boosting memiliki prediksi yang mendekati ideal, sedangkan SVR menyebar jauh (underfitting).
+### Hasil Evaluasi:
+- **Random Forest**: MSE 0.1087, R² 0.9127
+- **Gradient Boosting**: MSE 0.1153, R² 0.9074
+- **Linear Regression**: Performa sedang
+- **SVR**: Performa terendah (underfitting)
 
-🔹 Residual Analysis
-    - Visualisasi error (selisih nilai prediksi dan asli) terhadap harga asli.
-    Error tersebar merata di sekitar nol menunjukkan model stabil dan tidak bias terhadap harga rendah atau tinggi.
+## B. Prediksi vs Asli
+Visualisasi scatter plot menunjukkan bahwa Random Forest dan Gradient Boosting memberikan prediksi paling mendekati nilai aktual.
 
-🔹 Distribusi Error
-    - Histogram distribusi kesalahan prediksi.
-    Random Forest menunjukkan distribusi simetris dan sempit, indikasi model prediksi yang baik.
+## C. Analisis Error Model Terbaik
+Residual dari Random Forest menunjukkan error tersebar merata di sekitar nol, menunjukkan model stabil dan tidak bias.
 
-✅ Kesimpulan
-    - Random Forest adalah model terbaik untuk prediksi harga rumah pada dataset ini.
-    - Model ini memiliki akurasi tertinggi dan kesalahan terkecil baik secara numerik maupun visual.
-    - Luas bangunan adalah fitur paling berpengaruh terhadap harga rumah.
+## D. Distribusi Error Tiap Model
+Distribusi error yang sempit dan simetris ditemukan pada Random Forest. SVR menunjukkan distribusi error terburuk.
 
-💻 Cara Menjalankan Proyek
-    1. Upload file zip dataset (Dataset projek.zip).
-    2. Jalankan seluruh cell notebook secara berurutan.
-    3. Lihat hasil evaluasi, visualisasi, dan analisis residual.
-
-📁 Dataset
-    Dataset digunakan berisi data harga rumah dari berbagai kota di wilayah Jabodetabek, termasuk fitur seperti:
-    1. Luas bangunan
-    2. Luas tanah
-    3. Lokasi (latitude & longitude)
-    4. Fasilitas (jumlah kamar, listrik, garasi, dll.)
-
-📊 Tools & Teknologi
-    1. Python (Pandas, NumPy, Scikit-learn, Seaborn, Matplotlib)
-    2. Google Colab
-    3. Machine Learning Regression Models
+## Kesimpulan
+Random Forest menjadi model terbaik dalam prediksi harga rumah pada dataset Jabodetabek, dilihat dari evaluasi metrik dan analisis visual. Fitur `building_size_m2` menjadi penentu utama harga rumah. Model ini dapat digunakan sebagai dasar dalam sistem rekomendasi harga properti yang lebih akurat di masa depan.
