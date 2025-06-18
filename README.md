@@ -1,15 +1,21 @@
 🏡 Analisis Komparatif Algoritma Machine Learning untuk Prediksi Harga Rumah Berdasarkan Dataset Jabodetabek
 
 📌 Permasalahan
+
 Bagaimana membangun model prediksi harga rumah yang akurat, efisien, dan dapat diandalkan, serta menentukan model mana yang paling baik melalui evaluasi komparatif berbagai algoritma.
 
 🎯 Tujuan
+
 Mengevaluasi performa algoritma regresi dalam memprediksi harga rumah menggunakan dataset Jabodetabek.
+
 Mengidentifikasi model dengan akurasi terbaik berdasarkan metrik evaluasi seperti RMSE dan R².
+
 Menilai kemampuan masing-masing model dalam merepresentasikan data aktual secara visual dan numerik.
+
 Melakukan analisis residual pada model terbaik untuk memahami pola kesalahan dan potensi penyempurnaan.
 
 🗂️ Struktur Proyek
+
 1. Persiapan Dataset
     from google.colab import files
     uploaded = files.upload()
