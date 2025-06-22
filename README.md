@@ -9,7 +9,7 @@ Repositori ini berisi empat eksperimen prediksi harga rumah menggunakan model **
 
 - **Nama file**: `jabodetabek_house_price.csv`
 - **Target**: `price_in_rp`
-- **Fitur**: url, price_in_rp, title, address, district, city, lat, long, facilities, property_type, ads_id, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, certificate, electricity, maid_bedrooms, maid_bathrooms, floors, building_age, year_built, property_condition, building_orientation, garages, furnishing
+- **Fitur**: 'district', 'city', 'lat', 'long', 'property_type', 'bedrooms', 'bathrooms','land_size_m2', 'building_size_m2', 'carports', 'certificate', 'electricity','maid_bedrooms', 'maid_bathrooms', 'floors', 'building_age', 'property_condition','building_orientation', 'garages', 'furnishing', 'has_pool', 'has_security', 'has_park'
 
 
 ---
