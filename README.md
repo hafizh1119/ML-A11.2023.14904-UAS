@@ -27,7 +27,7 @@ Untuk menjawab permasalahan ini, proyek ini membandingkan dua model machine lear
 
 Dataset: jabodetabek_house_price.csv
 
-Berisi lebih dari 10.000 entri properti dengan atribut:
+Berisi 95.931 properti dengan atribut:
 
 ✳️ Fitur Numerik:
 lat, long, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, maid_bedrooms, maid_bathrooms,
