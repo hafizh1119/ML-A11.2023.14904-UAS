@@ -1,28 +1,33 @@
 # 🏡 PREDIKSI HARGA RUMAH DI JABODETABEK MENGGUNAKAN RANDOM FOREST & XGBOOST
 
-Pertumbuhan sektor properti di wilayah Jabodetabek semakin pesat setiap tahunnya. Namun, harga rumah di kawasan ini sangat bervariasi tergantung berbagai faktor seperti lokasi, luas tanah, jumlah kamar, kondisi bangunan, hingga status sertifikat. Ketidakteraturan harga ini menyulitkan calon pembeli maupun penjual untuk menentukan harga wajar.
+Proyek ini berangkat dari tantangan teknis dalam membangun model prediksi harga rumah yang akurat di wilayah Jabodetabek. Harga rumah dipengaruhi oleh banyak fitur numerik dan kategorikal seperti lokasi, ukuran bangunan, jenis sertifikat, kondisi rumah, dan lainnya.
 
-Untuk menjawab permasalahan ini, proyek ini membandingkan dua model machine learning populer, Random Forest dan XGBoost, dalam melakukan prediksi harga rumah berbasis data historis properti.
+Permasalahan utama dalam membangun model prediksi adalah:
 
+1. Sebaran harga rumah yang sangat skewed (condong kanan), yang membuat model kesulitan menghasilkan prediksi stabil tanpa transformasi logaritmik.
+
+2. Banyaknya fitur kategorikal yang perlu di-encode agar bisa digunakan dalam model berbasis pohon keputusan.
+
+3. Adanya missing value dan outlier dalam data historis properti yang berpotensi mengganggu performa model.
+
+4. Kebutuhan untuk membandingkan dua algoritma yang kuat, yaitu Random Forest dan XGBoost, untuk mengetahui mana yang lebih akurat dan efisien dalam konteks regresi harga rumah.
 ---
 # 🎯 TUJUAN PROYEK
-  1. Mengolah dan membersihkan data harga rumah dari Jabodetabek.
+  Proyek ini bertujuan untuk mengembangkan dan membandingkan dua model regresi (Random Forest dan XGBoost) dalam memprediksi harga rumah di wilayah Jabodetabek, dengan fokus pada aspek teknis berikut:
 
-  2. Melakukan eksplorasi data (EDA) dan rekayasa fitur (feature engineering).
+  1. Melakukan eksplorasi data dan rekayasa fitur untuk menghasilkan representasi data yang optimal bagi model prediksi.
 
-  3. Membangun dan membandingkan performa dua model regresi:
+  2. Menerapkan preprocessing yang sesuai untuk menangani data numerik dan kategorikal secara bersamaan menggunakan ColumnTransformer.
 
-      - Random Forest Regressor
+  3. Melakukan transformasi target log1p untuk mengatasi sebaran harga yang skewed dan meningkatkan stabilitas model.
 
-      - XGBoost Regressor
+  4. Menghapus outlier dan melakukan feature engineering tambahan seperti building_density, room_ratio, dan bed_bath_ratio untuk menambah informasi struktural properti.
 
-  4. Mengevaluasi performa model menggunakan metrik:
+  5. Melakukan hyperparameter tuning (GridSearchCV) untuk mendapatkan kombinasi parameter terbaik pada masing-masing model.
 
-      - MAE (Mean Absolute Error)
+  6. Membandingkan performa model berdasarkan metrik MAE, RMSE, dan R² Score, serta melakukan visualisasi selisih prediksi vs harga asli.
 
-      - RMSE (Root Mean Squared Error)
-
-      - R² Score
+  7. Menentukan model terbaik secara empiris, berdasarkan hasil evaluasi pada data uji, untuk digunakan sebagai sistem prediksi harga rumah berbasis data historis.
 # 🔄 Alur Penyelesaian Proyek
 
 ![Data Set (1)](https://github.com/user-attachments/assets/e938047e-ff02-4a20-990f-72863b816e4c)
