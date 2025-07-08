@@ -93,22 +93,31 @@ Langkah-langkah utama:
 📥 Preprocessing dan Pipeline
 
 preprocessor = ColumnTransformer([
+    
     ('num', StandardScaler(), fitur_numerik),
+    
     ('cat', OneHotEncoder(handle_unknown='ignore'), fitur_kategorikal)
+
 ])
 
 🌳 Random Forest Pipeline
 
 rf_pipeline = Pipeline([
+    
     ('preprocessor', preprocessor),
+    
     ('model', RandomForestRegressor())
+
 ])
 
 🚀 XGBoost Pipeline
 
 xgb_pipeline = Pipeline([
+    
     ('preprocessor', preprocessor),
+    
     ('model', XGBRegressor(objective='reg:squarederror'))
+
 ])
 
 # 📊 EVALUASI PERFORMA
