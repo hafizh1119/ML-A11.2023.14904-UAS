@@ -112,8 +112,6 @@ xgb_pipeline = Pipeline([
 
 ---
 
-## 🧩 POTONGAN KODE PENTING (DENGAN PENJELASAN)
-
 ### 📌 1. Load Data & Eksplorasi Awal
 Langkah awal yaitu memuat dataset harga rumah dan melihat struktur umum data: jumlah baris-kolom, tipe data, dan missing value.
 
