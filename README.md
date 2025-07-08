@@ -33,6 +33,21 @@ Permasalahan utama dalam membangun model prediksi adalah:
 ![Data Set (1)](https://github.com/user-attachments/assets/e938047e-ff02-4a20-990f-72863b816e4c)
 
 # 📚 Penjelasan Dataset
+
+Dataset: jabodetabek_house_price.csv
+
+Dataset terdiri dari 3553 entri dengan 27 kolom dengan atribut:
+
+✳️ Fitur Numerik:
+lat, long, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, maid_bedrooms, maid_bathrooms,
+floors, building_age, year_built, garages, building_density, room_ratio, bed_bath_ratio.
+
+🔤 Fitur Kategorikal:
+district, city, property_type, certificate, furnishing, propety_condition, building_orientation
+
+➕ Fitur Turunan:
+building_density, room_ratio, bed_bath_ratio
+
 Dataset ini mencakup informasi rumah di wilayah Jabodetabek, dengan kombinasi fitur numerik dan kategorikal yang menggambarkan:
 
   - Lokasi: lat, long, district, city
@@ -52,22 +67,6 @@ Contoh beberapa fitur tambahan hasil rekayasa:
   - room_ratio = (jumlah kamar + kamar mandi) / jumlah lantai
 
   - bed_bath_ratio = kamar tidur / kamar mandi
-
-# 🗂️ DATASET
-
-Dataset: jabodetabek_house_price.csv
-
-Dataset terdiri dari 3553 entri dengan 27 kolom dengan atribut:
-
-✳️ Fitur Numerik:
-lat, long, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, maid_bedrooms, maid_bathrooms,
-floors, building_age, year_built, garages, building_density, room_ratio, bed_bath_ratio.
-
-🔤 Fitur Kategorikal:
-district, city, property_type, certificate, furnishing, propety_condition, building_orientation
-
-➕ Fitur Turunan:
-building_density, room_ratio, bed_bath_ratio
 
 📌 Gambar: Distribusi Harga Rumah
 ![Screenshot 2025-07-08 221956](https://github.com/user-attachments/assets/342ccdb8-054e-40c0-bb87-18bfdbe54750)
