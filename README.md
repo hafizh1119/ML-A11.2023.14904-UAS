@@ -1,4 +1,3 @@
-
 # 🏡 PREDIKSI HARGA RUMAH DI JABODETABEK MENGGUNAKAN RANDOM FOREST & XGBOOST
 
 Pertumbuhan sektor properti di wilayah Jabodetabek semakin pesat setiap tahunnya. Namun, harga rumah di kawasan ini sangat bervariasi tergantung berbagai faktor seperti lokasi, luas tanah, jumlah kamar, kondisi bangunan, hingga status sertifikat. Ketidakteraturan harga ini menyulitkan calon pembeli maupun penjual untuk menentukan harga wajar.
@@ -110,3 +109,121 @@ xgb_pipeline = Pipeline([
   - Uji model dengan cross-validation k-fold untuk kestabilan performa.
 
   - Buat API prediksi sederhana agar bisa digunakan dalam website properti.
+
+---
+
+## 🧩 POTONGAN KODE PENTING (DENGAN PENJELASAN)
+
+### 📌 1. Load Data & Eksplorasi Awal
+Langkah awal yaitu memuat dataset harga rumah dan melihat struktur umum data: jumlah baris-kolom, tipe data, dan missing value.
+
+```python
+import pandas as pd
+data = pd.read_csv('jabodetabek_house_price.csv')
+print("Ukuran data:", data.shape)
+print(data.dtypes)
+print(data.isnull().sum())
+```
+
+### 📊 2. Visualisasi Distribusi Harga Rumah
+Untuk memahami sebaran harga rumah, dilakukan plot histogram baik pada skala asli maupun log.
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.histplot(data['price_in_rp'], bins=50, kde=True)
+plt.title('Distribusi Harga Rumah')
+plt.show()
+```
+
+### 🧠 3. Feature Engineering
+Menambahkan fitur baru seperti rasio bangunan dan kamar untuk membantu meningkatkan akurasi prediksi.
+
+```python
+data['building_density'] = data['building_size_m2'] / (data['land_size_m2'] + 1)
+data['room_ratio'] = (data['bedrooms'] + data['bathrooms']) / (data['floors'] + 1)
+data['bed_bath_ratio'] = data['bedrooms'] / (data['bathrooms'] + 1)
+```
+
+### 🧼 4. Preprocessing
+Standarisasi data numerik dan encoding fitur kategorikal dengan OneHotEncoder.
+
+```python
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
+preprocessor = ColumnTransformer([
+  ('num', StandardScaler(), fitur_numerik),
+  ('cat', OneHotEncoder(handle_unknown='ignore'), fitur_kategorikal)
+])
+```
+
+### 🌳 5. Random Forest Pipeline
+Pipeline untuk Random Forest Regressor yang sudah dilengkapi preprocessing.
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestRegressor
+
+rf_pipeline = Pipeline([
+  ('preprocessor', preprocessor),
+  ('model', RandomForestRegressor(random_state=42))
+])
+```
+
+### ⚡ 6. XGBoost Pipeline
+Pipeline untuk XGBoost Regressor, model yang kuat untuk regresi tabular.
+
+```python
+from xgboost import XGBRegressor
+
+xgb_pipeline = Pipeline([
+  ('preprocessor', preprocessor),
+  ('model', XGBRegressor(objective='reg:squarederror', random_state=42))
+])
+```
+
+### 🔍 7. Grid Search & Training
+Pencarian parameter terbaik menggunakan GridSearchCV dan validasi silang (CV).
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+param_grid_rf = {
+  'model__n_estimators': [200],
+  'model__max_depth': [30, None]
+}
+
+grid_rf = GridSearchCV(rf_pipeline, param_grid_rf, cv=3, scoring='r2')
+grid_rf.fit(X_train, y_train_log)
+```
+
+### 📈 8. Evaluasi Model
+Prediksi terhadap data uji dan evaluasi performa dengan MAE, RMSE, dan R².
+
+```python
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import numpy as np
+
+y_pred_rf = np.expm1(grid_rf.predict(X_test))
+y_true = np.expm1(y_test)
+
+print("MAE:", mean_absolute_error(y_true, y_pred_rf))
+print("RMSE:", np.sqrt(mean_squared_error(y_true, y_pred_rf)))
+print("R2 Score:", r2_score(y_true, y_pred_rf))
+```
+
+### 📊 9. Visualisasi Perbandingan Model
+Membandingkan prediksi dari dua model terhadap nilai harga asli.
+
+```python
+plt.scatter(y_true, y_pred_rf, label='Random Forest', alpha=0.5)
+plt.scatter(y_true, y_pred_xgb, label='XGBoost', alpha=0.5, color='orange')
+plt.plot([y_true.min(), y_true.max()], [y_true.min(), y_true.max()], 'k--')
+plt.xlabel('Harga Asli')
+plt.ylabel('Harga Prediksi')
+plt.title('Perbandingan Prediksi Model')
+plt.legend()
+plt.grid()
+plt.show()
+```
