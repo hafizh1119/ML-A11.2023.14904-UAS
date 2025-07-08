@@ -88,7 +88,7 @@ Langkah-langkah utama:
 
   6. Evaluasi model dan visualisasi hasil.
 
-# ✨ CUMLIPAN KODE UTAMA
+# ✨ Proses Learning dan Modeling
 
 📥 Preprocessing dan Pipeline
 
