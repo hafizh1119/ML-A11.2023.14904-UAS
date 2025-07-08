@@ -32,7 +32,7 @@ Permasalahan utama dalam membangun model prediksi adalah:
 
 ![Data Set (1)](https://github.com/user-attachments/assets/e938047e-ff02-4a20-990f-72863b816e4c)
 
-# 📚 Penjelasan Dataset
+# 📚 Dataset
 
 Dataset: jabodetabek_house_price.csv
 
