@@ -23,6 +23,31 @@ Untuk menjawab permasalahan ini, proyek ini membandingkan dua model machine lear
       - RMSE (Root Mean Squared Error)
 
       - R² Score
+# 🔄 Alur Penyelesaian Proyek
+
+![Data Set (1)](https://github.com/user-attachments/assets/e938047e-ff02-4a20-990f-72863b816e4c)
+
+# 📚 Penjelasan Dataset
+Dataset ini mencakup informasi rumah di wilayah Jabodetabek, dengan kombinasi fitur numerik dan kategorikal yang menggambarkan:
+
+  - Lokasi: lat, long, district, city
+
+  - Spesifikasi Bangunan: bedrooms, bathrooms, land_size_m2, building_size_m2, carports, floors, maid_bedrooms, dll.
+
+  - Kondisi Bangunan: year_built, building_age, building_orientation
+
+  - Legalitas: certificate
+
+  - Fasilitas & Kelistrikan: furnishing, electricity, dll.
+
+Contoh beberapa fitur tambahan hasil rekayasa:
+
+  - building_density = luas bangunan / luas tanah
+
+  - room_ratio = (jumlah kamar + kamar mandi) / jumlah lantai
+
+  - bed_bath_ratio = kamar tidur / kamar mandi
+
 # 🗂️ DATASET
 
 Dataset: jabodetabek_house_price.csv
