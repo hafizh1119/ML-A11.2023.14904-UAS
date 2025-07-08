@@ -52,7 +52,7 @@ Contoh beberapa fitur tambahan hasil rekayasa:
 
 Dataset: jabodetabek_house_price.csv
 
-Berisi 95.931 properti dengan atribut:
+Dataset terdiri dari 3553 entri dengan 27 kolom dengan atribut:
 
 ✳️ Fitur Numerik:
 lat, long, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, maid_bedrooms, maid_bathrooms,
