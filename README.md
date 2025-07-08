@@ -81,14 +81,17 @@ Dataset: jabodetabek_house_price.csv
 Dataset terdiri dari 3553 entri dengan 27 kolom dengan atribut:
 
 ✳️ Fitur Numerik:
-lat, long, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, maid_bedrooms, maid_bathrooms,
-floors, building_age, year_built, garages, building_density, room_ratio, bed_bath_ratio.
+
+   lat, long, bedrooms, bathrooms, land_size_m2, building_size_m2, carports, maid_bedrooms, maid_bathrooms,
+   floors, building_age, year_built, garages, building_density, room_ratio, bed_bath_ratio.
 
 🔤 Fitur Kategorikal:
-district, city, property_type, certificate, furnishing, propety_condition, building_orientation
+
+    district, city, property_type, certificate, furnishing, propety_condition, building_orientation
 
 ➕ Fitur Turunan:
-building_density, room_ratio, bed_bath_ratio
+
+    building_density, room_ratio, bed_bath_ratio
 
 Dataset ini mencakup informasi rumah di wilayah Jabodetabek, dengan kombinasi fitur numerik dan kategorikal yang menggambarkan:
 
