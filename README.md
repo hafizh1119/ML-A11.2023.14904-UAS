@@ -74,24 +74,6 @@ Contoh beberapa fitur tambahan hasil rekayasa:
 📌 Gambar: Heatmap Korelasi Fitur Numerik
 ![image](https://github.com/user-attachments/assets/b071e701-c67d-42cf-b8c1-e5474e0e7080)
 
-# 🔧 PROSES PENYELESAIAN
-
-📌 Gambar: Diagram Alur Model
-
-Langkah-langkah utama:
-
-  1. Import data dan eksplorasi awal.
-
-  2. Bersihkan data dari outlier & missing value.
-
-  3. Feature engineering dan preprocessing (standarisasi dan one-hot encoding).
-
-  4. Split data menjadi data latih dan uji.
-
-  5. Training model Random Forest dan XGBoost.
-
-  6. Evaluasi model dan visualisasi hasil.
-
 # ✨ Proses Learning dan Modeling
 
 📥 Preprocessing dan Pipeline
