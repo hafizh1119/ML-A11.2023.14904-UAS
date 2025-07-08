@@ -33,9 +33,13 @@ Permasalahan utama dalam membangun model prediksi adalah:
 ![Data Set (1)](https://github.com/user-attachments/assets/e938047e-ff02-4a20-990f-72863b816e4c)
 
 1. Input Data
+   
     Dataset yang digunakan adalah data harga rumah di wilayah Jabodetabek, yang mencakup fitur-fitur numerik seperti bedrooms, land_size_m2, serta fitur kategorikal seperti city, certificate, dan lainnya.
+   
 2. Eksplorasi Data (EDA)
+   
    Tahap ini melibatkan analisis awal untuk memahami struktur data, distribusi harga (price_in_rp), deteksi outlier, serta missing values. Termasuk visualisasi seperti histogram dan heatmap korelasi fitur numerik.
+   
 3. Feature Engineering & Preprocessing
 
    - Pembuatan fitur turunan seperti building_density, room_ratio, dan bed_bath_ratio.
@@ -50,7 +54,7 @@ Permasalahan utama dalam membangun model prediksi adalah:
 
    - XGBoost Regressor juga diproses dalam pipeline serupa, dengan fokus pada performa dan efisiensi.
      
-6. Evaluasi Model
+5. Evaluasi Model
 
    - MAE (Mean Absolute Error)
 
@@ -60,7 +64,7 @@ Permasalahan utama dalam membangun model prediksi adalah:
 
      Target prediksi dilakukan terhadap variabel log(price_in_rp) yang kemudian dikembalikan ke skala asli dengan expm1.
      
-8. Visualisasi & Interpretasi Hasil
+6. Visualisasi & Interpretasi Hasil
 
    - Scatter plot prediksi vs harga asli
 
