@@ -1,7 +1,9 @@
 # 🏡 PREDIKSI HARGA RUMAH DI JABODETABEK MENGGUNAKAN RANDOM FOREST & XGBOOST
 
 Nama : Hafizh Naufal Nuha Kusuma
+
 NIM  : A11.2023.14904
+
 Klmpk: A11.4406
 
 Proyek ini berawal dari tantangan teknis dalam membangun model prediksi harga rumah yang akurat di wilayah Jabodetabek. Harga rumah dipengaruhi oleh banyak fitur numerik dan kategorikal seperti lokasi, ukuran bangunan, jenis sertifikat, kondisi rumah, dan lainnya.
