@@ -158,7 +158,7 @@ xgb_pipeline = Pipeline([
 
 ])
 
-# 📊 EVALUASI PERFORMA
+# 📊 EVALUASI MODEL
 📌 Gambar: Visualisasi Prediksi Random Forest & XGBoost
 ![Screenshot 2025-07-08 222540](https://github.com/user-attachments/assets/5026bc5d-e7d6-48d4-aa5e-6d1fd266044e)
 
@@ -167,20 +167,25 @@ xgb_pipeline = Pipeline([
 | Random Forest | 654319962   | 1860495807  | 0.8432     |
 | XGBoost       | 637125215   | 1716557060  | 0.8665     |
 
+# 🧠 Diskusi Hasil
+Model XGBoost menunjukkan performa yang lebih unggul dibandingkan Random Forest. Hal ini didukung oleh:
+
+1. Boosting vs Bagging: XGBoost melakukan boosting (belajar dari kesalahan model sebelumnya), sedangkan Random Forest hanya bagging (menggabungkan model acak).
+
+2. Regularisasi L1 & L2: Mencegah overfitting, sehingga model lebih stabil.
+
+3. Feature importance yang lebih tajam: Memudahkan interpretasi fitur dominan.
+
+4. Optimasi kecepatan: XGBoost lebih cepat saat tuning karena mendukung komputasi paralel.
+
+Dengan data kompleks seperti harga rumah (tabular & banyak fitur), XGBoost memberikan generalisasi yang lebih baik dan prediksi yang lebih akurat.
+
 # ✅ KESIMPULAN
   - Kedua model mampu memprediksi harga rumah dengan cukup baik.
 
   - XGBoost sedikit lebih unggul dari Random Forest dalam hal akurasi (R² lebih tinggi).
 
   - Fitur seperti lokasi (city, district), luas tanah, dan jumlah kamar terbukti sangat berpengaruh terhadap harga rumah.
-# 🛠️ SARAN PENGEMBANGAN
-  - Coba integrasikan data eksternal seperti harga tanah per wilayah atau fasilitas umum terdekat.
-
-  - Gunakan SHAP values untuk interpretasi model lebih dalam.
-
-  - Uji model dengan cross-validation k-fold untuk kestabilan performa.
-
-  - Buat API prediksi sederhana agar bisa digunakan dalam website properti.
 
 ---
 
