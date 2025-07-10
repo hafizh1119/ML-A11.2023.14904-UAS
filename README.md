@@ -126,7 +126,7 @@ Contoh beberapa fitur tambahan hasil rekayasa:
 
 Proses rekayasa fitur dilakukan untuk memperkuat informasi struktural dari setiap rumah. Misalnya, building_density digunakan untuk melihat seberapa padat bangunan terhadap lahan, room_ratio untuk menangkap distribusi ruang per lantai, dan bed_bath_ratio untuk melihat rasio ideal kamar tidur dan kamar mandi. Fitur-fitur ini diyakini dapat membantu model dalam memahami nilai fungsional dari suatu rumah, bukan hanya sekadar ukurannya.
 
-# EDA (Eksplorasi Data Awal)
+# EDA 
 
 📌 Gambar: Distribusi Harga Rumah
 ![Screenshot 2025-07-08 221956](https://github.com/user-attachments/assets/342ccdb8-054e-40c0-bb87-18bfdbe54750)
