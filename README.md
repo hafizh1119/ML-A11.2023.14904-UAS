@@ -82,7 +82,9 @@ Permasalahan utama dalam membangun model prediksi adalah:
    
      Visualisasi ini membantu memahami seberapa akurat model memetakan fitur terhadap harga sebenarnya.
 
-# 📚 Dataset
+# 📚 Penjelasan Dataset, EDA, dan Proses Features Dataset
+
+# Dataset
 
 Dataset: jabodetabek_house_price.csv
 
@@ -112,13 +114,15 @@ Dataset ini mencakup informasi rumah di wilayah Jabodetabek, dengan kombinasi fi
 
   - Fasilitas & Kelistrikan: furnishing, electricity, dll.
 
-Contoh beberapa fitur tambahan hasil rekayasa:
+# Proses Features Dataset
 
   - building_density = luas bangunan / luas tanah
 
   - room_ratio = (jumlah kamar + kamar mandi) / jumlah lantai
 
   - bed_bath_ratio = kamar tidur / kamar mandi
+
+# EDA (Eksplorasi Data Awal)
 
 📌 Gambar: Distribusi Harga Rumah
 ![Screenshot 2025-07-08 221956](https://github.com/user-attachments/assets/342ccdb8-054e-40c0-bb87-18bfdbe54750)
