@@ -158,7 +158,7 @@ xgb_pipeline = Pipeline([
 
 ])
 
-# 📊 EVALUASI MODEL
+# 📊 PERFORMA MODEL
 📌 Gambar: Visualisasi Prediksi Random Forest & XGBoost
 ![Screenshot 2025-07-08 222540](https://github.com/user-attachments/assets/5026bc5d-e7d6-48d4-aa5e-6d1fd266044e)
 
